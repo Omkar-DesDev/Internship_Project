@@ -1,0 +1,7 @@
+{
+  "name": "TalkType: Real-Time Transcription",
+  "description": "A web-based application that enables users to convert spoken audio into written text in real-time using the Gemini API. It takes voice input through the microphone and displays the live transcription on the screen.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

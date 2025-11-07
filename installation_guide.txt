@@ -1,0 +1,80 @@
+
+TalkType: Real-Time Transcription - Installation Guide
+=====================================================
+
+Thank you for using TalkType! This guide will walk you through the steps to get the application running on your local machine.
+
+--------------------
+Part 1: Prerequisites
+--------------------
+
+Before you begin, ensure you have the following software installed on your computer:
+
+1.  **Node.js**: This is a JavaScript runtime that allows you to run the project. It comes with `npm` (Node Package Manager), which you'll use to install project dependencies.
+    *   You can download it from: https://nodejs.org/
+
+2.  **A code editor**: Any modern code editor like VS Code, Sublime Text, or Atom will work.
+
+-----------------------
+Part 2: Getting Started
+-----------------------
+
+1.  **Download the Project Files**
+    Unzip all the project files into a new folder on your computer. Let's call this folder `talktype-app`.
+
+2.  **Open Your Terminal**
+    Navigate into the project directory using your terminal (Command Prompt, PowerShell, or any Linux/macOS terminal).
+    ```bash
+    cd path/to/talktype-app
+    ```
+
+3.  **Install Dependencies**
+    Once inside the project directory, run the following command to install all the necessary packages for the application to run.
+    ```bash
+    npm install
+    ```
+    This command reads the `package.json` file (if present) and downloads all the required libraries into a `node_modules` folder.
+
+--------------------------------
+Part 3: API Key Configuration
+--------------------------------
+
+The TalkType application uses the Google Gemini API, which requires a personal API key to function.
+
+1.  **Get Your Gemini API Key**
+    *   Visit Google AI Studio: https://aistudio.google.com/
+    *   Sign in with your Google account.
+    *   Click on the "Get API key" button to create a new API key.
+    *   Copy the generated API key. **Keep this key private and secure.**
+
+2.  **Create an Environment File**
+    *   In the root of your `talktype-app` project folder, create a new file named `.env.local`.
+    *   This file will securely store your API key so it's not hard-coded into the application.
+
+3.  **Add Your API Key to the File**
+    *   Open the newly created `.env.local` file and add the following line, replacing `YOUR_GEMINI_API_KEY` with the key you copied from Google AI Studio.
+
+    ```
+    VITE_API_KEY=YOUR_GEMINI_API_KEY
+    ```
+
+    *   Save and close the file. The `VITE_` prefix is important as it allows the development server to securely expose this key to the application.
+
+-----------------------------------
+Part 4: Running the Application
+-----------------------------------
+
+1.  **Start the Development Server**
+    In your terminal, from the root of the `talktype-app` directory, run the following command:
+    ```bash
+    npm run dev
+    ```
+    (Note: This assumes a standard Vite-based project setup. If that doesn't work, you may need to use a simple server like `npx serve`.)
+
+2.  **Open in Your Browser**
+    The terminal will output a local URL, which is usually `http://localhost:5173/`. Open this URL in your web browser.
+
+3.  **Grant Microphone Access**
+    When you click the "Start Recording" button for the first time, your browser will prompt you for permission to use your microphone. You must click "Allow" for the application to work.
+
+You're all set! You can now use TalkType to transcribe your speech in real-time. To stop the application, go back to your terminal and press `Ctrl + C`.
